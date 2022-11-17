@@ -1,26 +1,84 @@
-import React from "react";
+import React, { useState } from "react";
+import Form from "./Form";
+import Tarea from "./Tarea";
 
-//include images into your bundle
-import rigoImage from "../../img/rigo-baby.jpg";
-
-//create your first component
 const Home = () => {
-	return (
-		<div className="text-center">
-			<h1 className="text-center mt-5">Hello Rigo!</h1>
-			<p>
-				<img src={rigoImage} />
-			</p>
-			<a href="#" className="btn btn-success">
-				If you see this green button... bootstrap is working...
-			</a>
-			<p>
-				Made by{" "}
-				<a href="http://www.4geeksacademy.com">4Geeks Academy</a>, with
-				love!
-			</p>
-		</div>
-	);
+
+  const [tarea, setTarea] = useState('')
+  const [listadoTareas, setListadoTareas] = useState([])
+
+  function handleSubmit(e){
+      e.preventDefault()
+
+    if(tarea === ''){
+      alert('Debes Agregar una Tarea')
+      return
+    }
+
+    const nuevaTarea ={
+      id: Date.now(),
+      tarea: tarea,
+      completado: false
+    }
+       const temp=[nuevaTarea, ...listadoTareas]
+       setListadoTareas(temp)
+       setTarea('')
+       console.log(listadoTareas)
+        }
+
+  function handleChange(e){
+    setTarea(e.target.value)
+          console.log('tarea')
+  }      
+
+  function onBorrarTarea(id){
+    const temp = listadoTareas.filter(item => item.id !== id)
+    setListadoTareas(temp)
+  }
+ 
+  return (
+  <>
+    <div className="main-container">
+      <h1>Todo-List</h1>
+      <div className="form-container">
+        <Form 
+          tarea={tarea}
+          handleSubmit={handleSubmit}
+          handleChange={handleChange}/>
+      </div>
+        <div className="tasks-container">
+          <h2>Lista de Tareas</h2>
+          <div>
+            {
+              listadoTareas.map(tarea => (
+                <Tarea
+                key={tarea.id}
+                id={tarea.id}
+                tarea={tarea}
+                onBorrarTarea={onBorrarTarea}/>
+              ))
+            }
+          </div>
+        </div>
+    </div>
+  </>  
+  );
 };
 
 export default Home;
+
+
+
+/*const [input, setInput] = useState("");
+const app = () => {}
+
+const keyDown =(event)=>{
+  if (event.key === 'Enter'){
+    console.log("has dado enter");
+  }
+	
+}
+return(
+  <input type="text" onChange={(event)=>setInput(event.target.value)} onKeyDown={keyDown}/>
+
+)*/ 
