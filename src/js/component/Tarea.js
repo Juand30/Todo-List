@@ -12,7 +12,7 @@ export function Tarea(props){
                     <span>{tarea.tarea}</span>
                     <button className="btn"
                     onClick={()=> onBorrarTarea(tarea.id)}>
-                        BORRAR
+                       <i class="fas fa-trash-alt"></i>
                     </button>
                 </div>
             
