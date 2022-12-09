@@ -6,6 +6,14 @@ const Home = () => {
 
   const [tarea, setTarea] = useState('')
   const [listadoTareas, setListadoTareas] = useState([])
+  const [contadorTareas, setContadorTareas] = useState(0)
+
+  const contador = () =>{
+    if (tarea != ""){
+      setListadoTareas([...listadoTareas, {label: tarea, done: false}])
+      setContadorTareas (contadorTareas + 1)
+      }
+  }
 
   function handleSubmit(e){
       e.preventDefault()
@@ -32,6 +40,7 @@ const Home = () => {
   }      
 
   function onBorrarTarea(id){
+    setContadorTareas (contadorTareas -1)
     const temp = listadoTareas.filter(item => item.id !== id)
     setListadoTareas(temp)
   }
@@ -55,7 +64,8 @@ const Home = () => {
                 key={tarea.id}
                 id={tarea.id}
                 tarea={tarea}
-                onBorrarTarea={onBorrarTarea}/>
+                onBorrarTarea={onBorrarTarea}
+                />
               ))
             }
           </div>

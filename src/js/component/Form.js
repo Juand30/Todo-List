@@ -1,7 +1,8 @@
 import React from "react";
+import { useState } from "react";
 
 export function Form(props){
-    const {tarea, handleSubmit, handleChange} = props
+    const {tarea, handleSubmit, handleChange, contador} = props
 
     
     return (
@@ -10,7 +11,8 @@ export function Form(props){
                 type="text"
                 placeholder="introduce la tarea" 
                 onChange={handleChange}
-                value={tarea}/>
+                value={tarea}
+                contador= {(event) => event.key == "Enter" ? contador() : ""}/>
              
         </form>
     )
