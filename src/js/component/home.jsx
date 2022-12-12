@@ -40,7 +40,7 @@ const Home = () => {
   }      
 
   function onBorrarTarea(id){
-    setContadorTareas (contadorTareas -1)
+    setContadorTareas(contadorTareas -1)
     const temp = listadoTareas.filter(item => item.id !== id)
     setListadoTareas(temp)
   }
@@ -65,6 +65,7 @@ const Home = () => {
                 id={tarea.id}
                 tarea={tarea}
                 onBorrarTarea={onBorrarTarea}
+                contador={contador}
                 />
               ))
             }
