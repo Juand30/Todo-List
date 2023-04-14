@@ -9,7 +9,7 @@ export function Form(props){
         <form onSubmit={handleSubmit}>
             <input
                 type="text"
-                placeholder="introduce la tarea" 
+                placeholder="Introduce nueva tarea" 
                 onChange={handleChange}
                 value={tarea}
                 contador= {(event) => event.key == "Enter" ? contador() : ""}/>

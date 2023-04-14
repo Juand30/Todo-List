@@ -1,8 +1,23 @@
 body {
-    background: rgb(9, 113, 248);
+    background: #f9f9f9;
 }
+input::placeholder {
+    text-align: center;
+  }
 
-.main-container {
+input {
+    width: 230px;
+    height: 40px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 18px;
+    padding: 5px;
+    text-align: center;
+    margin-bottom: 12px;
+  }
+  
+  .main-container {
     width: 100%;
     height: calc(100vh - 100px);
     color: black;
@@ -21,16 +36,47 @@ body {
     border-radius: 10px;
 }
 .tasks-container{
-    width: 30%;
-    background-color: rgb(230, 225, 180);
+    display: block;
+    width: 25%;
+    background-color: #f9f2e0;
     padding: 10px;
     margin-top: 5px;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    
 }
-input {
-    font-size: 22px;
-    border-radius: 5px;
+.contador{
+    border-top: 1px solid #d0d0d0;
+    width: 15rem;
+    margin: 0; 
+    display: flex;
+    margin-top: 0.8rem;
+    padding: 3px;
+    color: #5d5d5d;
+    
 }
+.divtask{
+    border-top: 1px solid #d0d0d0;
+    border-bottom: 1px solid #d0d0d0;
+    width: 15rem;
+    display: flex;
+    flex-direction: column;
+    text-align-last: justify;
+}
+.letters{
+    font-family: 'Montserrat', sans-serif;
+}
+
+.boton-oculto {
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    float: right;
+  }
+  
+  .contenedor-botones:hover .boton-oculto {
+    opacity: 1;
+    transition: opacity 0.2s ease;
+  }
+  

@@ -29,9 +29,11 @@ const Home = () => {
       completado: false
     }
        const temp=[nuevaTarea, ...listadoTareas]
+       contador();
        setListadoTareas(temp)
        setTarea('')
        console.log(listadoTareas)
+       
         }
 
   function handleChange(e){
@@ -42,22 +44,20 @@ const Home = () => {
   function onBorrarTarea(id){
     setContadorTareas(contadorTareas -1)
     const temp = listadoTareas.filter(item => item.id !== id)
-    setListadoTareas(temp)
+    setListadoTareas(temp);
   }
  
   return (
   <>
     <div className="main-container">
-      <h1>Todo-List</h1>
-      <div className="form-container">
-        <Form 
+      <h1 className="letters">Todo-List</h1>
+        <div className="tasks-container">
+          <h2 className="letters">Lista de Tareas</h2>
+          <Form 
           tarea={tarea}
           handleSubmit={handleSubmit}
           handleChange={handleChange}/>
-      </div>
-        <div className="tasks-container">
-          <h2>Lista de Tareas</h2>
-          <div>
+          <div className="divtask letters contenedor-botones">
             {
               listadoTareas.map(tarea => (
                 <Tarea
@@ -70,7 +70,8 @@ const Home = () => {
               ))
             }
           </div>
-        </div>
+          <div className="contador">{contadorTareas} Item left</div>
+        </div>      
     </div>
   </>  
   );
