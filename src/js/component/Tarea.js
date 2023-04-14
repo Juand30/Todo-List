@@ -4,16 +4,15 @@ export function Tarea(props){
 
     const {tarea, onBorrarTarea} = props
 
- 
-
         return (
             <>
                 <div id={tarea.id}>
                     <span>{tarea.tarea}</span>
-                    <button className="btn"
+                    <button id="boton" className="btn boton-oculto" 
                     onClick={()=> onBorrarTarea(tarea.id)}>
-                        BORRAR
+                       <i class="fas fa-trash-alt"></i>
                     </button>
+                    
                 </div>
             
             </>
