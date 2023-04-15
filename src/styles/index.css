@@ -59,7 +59,6 @@ input {
 }
 .divtask{
     border-top: 1px solid #d0d0d0;
-    border-bottom: 1px solid #d0d0d0;
     width: 15rem;
     display: flex;
     flex-direction: column;
